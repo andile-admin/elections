@@ -1330,6 +1330,29 @@ function zee_the_attached_image() {
         the_title_attribute( array( 'echo' => false ) ),
         wp_get_attachment_image( $post->ID, $attachment_size )
         );
-}
+    }
+    function raise($args,$die=false)
+    {
+        
+        ini_set("display_startup_errors",1);
+        ini_set("display_errors",1);
+        ini_set('error_reporting', E_ALL);
+
+
+        if($die==='hidden')
+        {
+            echo "<div style='display:none;'>";
+        }
+        echo "<pre  style='width:100%;opacity:0.4;'>";
+        echo(var_dump($args));
+        echo "</pre>";
+        if($die=='hidden')
+        {
+            echo "</div>";
+        }
+        if($die==true){die();}
+    }
+
+
 }
 
